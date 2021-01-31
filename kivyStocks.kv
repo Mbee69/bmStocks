@@ -1,0 +1,147 @@
+<ScreenManagement>:
+    MainWindow:
+    StockDetails:
+    DivDetails:
+
+<Label>:
+
+<MainWindow>:
+    name: "main"
+    BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: "Stocks"
+            #right_action_items: [['plus', lambda x: app.add_new()],['dots-vertical', lambda x: app.tb_option_click()]]
+
+        BoxLayout:
+            size_hint: 1, 0.1
+            MDLabel:
+                text: "Print Print"
+            TextInput:
+                id: txt_ticker
+                size_hint: 1.1, 1
+                text: "msft"
+        BoxLayout:
+            size_hint: 1, 0.1
+            MDLabel:
+                text: "Start"
+            TextInput:
+                id: dtStart
+                text: "2020-01-01"
+            Button:
+                text: ">"
+                size_hint: 0.1, 1
+                on_release:
+                    app.show_date_picker_start()
+        BoxLayout:
+            size_hint: 1, 0.1
+            MDLabel:
+                text: "Ende"
+            TextInput:
+                id: dtEnd
+                text: "2021-01-31"
+            Button:
+                size_hint: 0.1, 1
+                text: ">"
+                on_release:
+                    app.show_date_picker_end()
+        BoxLayout:
+            ScrollView:
+                MDList:
+                    id: main_list
+
+        BoxLayout:
+            size_hint: 1, 0.1
+            Button:
+                text: "Load Div"
+                on_release:
+                    app.call_div()
+            Button:
+                text: "Load All Div"
+                on_release:
+                    app.call_all_div()
+
+            Button:
+                text: "Load Stock"
+                on_release:
+                    app.call_ticker()
+       
+            Button:
+                text: "Load All Stock"
+                on_release:
+                    app.call_all_ticker()
+        BoxLayout:
+            size_hint: 1, 0.1
+            Button:
+                text: "Print All Div"
+                on_release:
+                    app.print_all_div()
+
+            Button:
+                text: "Save Div CSV File"
+                on_release:
+                    app.save_div_csv_div()
+
+      
+            Button:
+                text: "Print All Stock"
+                on_release:
+                    app.print_all_ticker()
+
+            Button:
+                text: "Save Stock CSV File"
+                on_release:
+                    app.save_stock_csv_div()
+
+        BoxLayout:
+            size_hint: 1, 0.1
+            Button:
+                text: "Set CSV Path from TextInput"
+                on_release:
+                    app.set_csv_path()
+
+        BoxLayout:
+            size_hint: 1, 0.1
+            Button:
+                id: btn_test_1
+                text: "Test 1"
+                on_release:
+                    app.test_1()
+            Button:
+                id: btn_test_2
+                text: "Test 2"
+                on_release:
+                    app.test_2()
+            Button:
+                id: btn_test_3
+                text: "Test 3"
+                on_release:
+                    app.test_3()
+            Button:
+                id: btn_test_4
+                text: "Test 4"
+                on_release:
+                    app.test_4()
+
+<StockDetails>:
+    name: "stock_details"
+    BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: "Speise"
+            left_action_items: [['backburger', lambda x: app.nav_main()]]
+            #right_action_items: [['plus', lambda x: app.add_new_speise_zutat()],['trash-can-outline', lambda x: app.del_current()],['dots-vertical', lambda x: app.tb_option_click()]]
+
+<DivDetails>:
+    name: "div_details"
+    BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: "Dividents"
+            left_action_items: [['backburger', lambda x: app.nav_main()]]
+            #right_action_items: [['plus', lambda x: app.add_new_speise_zutat()],['trash-can-outline', lambda x: app.del_current()],['dots-vertical', lambda x: app.tb_option_click()]]
+
+        BoxLayout:
+            ScrollView:
+                MDList:
+                    id: div_detail_list
